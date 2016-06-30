@@ -44,7 +44,8 @@ to administrator;
 
 
 grant execute on function
-login(text,text),
+login_jwt(text,text),
+login_session(text,text),
 signup(text,text,text,text)
 to anonymous;
 

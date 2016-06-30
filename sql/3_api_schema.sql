@@ -167,7 +167,7 @@ drop type if exists jwt_claims cascade;
 create type jwt_claims AS (role text, user_id int, company_id int);
 
 create or replace function
-login(email text, password text) returns api.jwt_claims
+login_jwt(email text, password text) returns api.jwt_claims
 stable security definer
 language plpgsql
 as $$
@@ -189,8 +189,70 @@ begin
     return result;
 end
 $$;
-comment on function login(email text, password text) is 'Returns a jwt claims object';
-revoke all privileges on function login(text, text) from public;
+comment on function login_jwt(email text, password text) is 'Returns a jwt claims object';
+revoke all privileges on function login_jwt(text, text) from public;
+
+drop type if exists session_claims cascade;
+create type session_claims AS (
+  name text,
+  value text,
+  "path" text,
+  expires integer,
+  max_age integer,
+  domain text,
+  http_only boolean,
+  secure boolean
+);
+
+create or replace function
+login_session(email text, password text) returns api.session_claims
+volatile security definer
+language plpgsql
+as $$
+declare
+	usr data.users;
+	eml text;
+	pass text;
+	sess data.sessions;
+begin
+	--assign to another name to prevent name ambiguity in relation to table names
+	eml := email;
+	pass := password;
+
+    select id, company_id into usr
+    from data.users as u
+    where u.email = eml and u.password = pass;
+    if not found then
+    	raise exception 'invalid email/password';
+    else
+    	insert into data.sessions (user_id, company_id)
+    	values (usr.id, usr.company_id)
+    	returning * into sess;
+    	return (
+		   	-- 'PGSESSID'::text as name,
+		    -- sess.session_id::text as value,
+		    -- null::text    as "path" --'/'::text as "path",
+		    -- null::integer as expires --1000::integer as expires,
+		    -- 300::integer  as max_age,
+		    -- null::text    as domain, --'mydomain.com'::text as domain,
+		    -- null::boolean as http_only, --true as http_only,
+		    -- null::boolean as secure --true as secure
+		    'PGSESSID'::text,
+		    sess.session_id::text,
+		    null::text,--'/'::text as "path",
+		    null::integer, --1000::integer as expires,
+		    300::integer,
+		    null::text, --'mydomain.com'::text as domain,
+		    null::boolean, --true as http_only,
+		    null::boolean --true as secure
+
+		);
+
+    end if;
+end
+$$;
+comment on function login_session(email text, password text) is 'Returns a jwt claims object';
+revoke all privileges on function login_session(text, text) from public;
 
 
 create or replace function

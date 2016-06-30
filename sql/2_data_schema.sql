@@ -67,6 +67,12 @@ create table users_tasks (
 );
 create index users_tasks_company_id_index on users_tasks(company_id);
 
+create table sessions ( 
+	session_id           uuid primary key default gen_random_uuid(),
+	user_id              int references users(id),
+	company_id           int references companies(id)
+);
+
 
 create or replace function node_id(companies) returns text as $$
 select encode(convert_to('company_' || $1.id::text, 'utf-8'), 'base64')
