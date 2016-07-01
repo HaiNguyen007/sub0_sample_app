@@ -9,7 +9,7 @@ declare
 	sess data.sessions;
 	usr data.users;
 begin
-	sess_id = nullif(current_setting('postgrest.claims.SESSIONID'),'');
+	sess_id = nullif(current_setting('postgrest.claims.cookie.SESSIONID'),'');
 	if sess_id <> '' then
 		select * into sess
 		from data.sessions as s
