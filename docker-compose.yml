@@ -39,8 +39,7 @@ services:
       - db:db
       - postgrest:postgrest
     environment:
-      - dummy=true
-      # - DEVELOPMENT=1
+      - DEVELOPMENT=0
       # - CACHE_BYPASS=1
       - CACHE_BYPASS=0
       # - POSTGREST_HOST=postgrest
