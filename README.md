@@ -92,7 +92,7 @@ mutation {
 
 Once you get a feel of how things work and feel adventurous,  try the system with your own schema. 
 
- - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f status=exited)` but be aware that it will remove all your other exited containers)
+ - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f name=sampleapp_,status=exited)` to remove just the containers started as part of this docker-compose sample.)
  - Place your files in the `sql` directory.
  - Start the system again with `docker-compose up`
 
