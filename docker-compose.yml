@@ -1,7 +1,8 @@
 version: '2'
 services:
   db:
-    image: postgres
+    #image: postgres #official
+    image: onjin/alpine-postgres
     ports:
       - "5432:5432"
     environment:
