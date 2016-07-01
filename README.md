@@ -27,9 +27,22 @@ Toggle the `Docs` panel (top right corner) to explore the types/endpoints
 
 Use this JWT to run queries `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjF9.ate5mETtGRu-mfGF4jFt7pP1b4W85r2uEXt603D7obc`
 
-You can also use `rpc/signup` and `rpc/login` to get your own jwt
+You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can use the `session` authentication method by running
 
-Try these queries
+```graphql
+{
+  rpc {
+    login_session(email:"michael@dundermifflin.com",password:"pass"){
+      name
+      value
+      max_age
+    }
+  }
+}
+```
+
+
+After you are logged in (by envoking login_session or by using a JWT value), try these queries
 ```graphql
 {
   projects {

@@ -1,3 +1,36 @@
+-- The following function needs to be in the public schema
+set search_path to public;
+create or replace function check_session_id() returns void
+volatile -- security definer
+language plpgsql
+as $$
+declare
+	sess_id text;
+	sess data.sessions;
+	usr data.users;
+begin
+	sess_id = nullif(current_setting('postgrest.claims.SESSIONID'),'');
+	if sess_id <> '' then
+		select * into sess
+		from data.sessions as s
+		where s.session_id = sess_id::uuid;
+
+		if found then
+			select * into usr
+			from data.users as u
+			where u.id = sess.user_id;
+			if found then
+				execute 'set local postgrest.claims.user_id = ' || quote_literal(sess.user_id);
+				execute 'set local postgrest.claims.company_id = ' || quote_literal(sess.company_id);
+				execute 'set local role to ' || quote_ident(usr.user_type::text);
+			end if;
+		end if;
+	end if;
+end
+$$;
+
+
+
 create schema api;
 set search_path to api, data, public;
 
@@ -219,7 +252,7 @@ begin
 	eml := email;
 	pass := password;
 
-    select id, company_id into usr
+    select * into usr
     from data.users as u
     where u.email = eml and u.password = pass;
     if not found then
@@ -237,11 +270,11 @@ begin
 		    -- null::text    as domain, --'mydomain.com'::text as domain,
 		    -- null::boolean as http_only, --true as http_only,
 		    -- null::boolean as secure --true as secure
-		    'PGSESSID'::text,
+		    'SESSIONID'::text,
 		    sess.session_id::text,
 		    null::text,--'/'::text as "path",
 		    null::integer, --1000::integer as expires,
-		    300::integer,
+		    3600::integer,
 		    null::text, --'mydomain.com'::text as domain,
 		    null::boolean, --true as http_only,
 		    null::boolean --true as secure

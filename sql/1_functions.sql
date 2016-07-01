@@ -25,3 +25,4 @@ as $$
     select nullif(current_setting('postgrest.claims.company_id'), '')::integer;
 $$;
 
+

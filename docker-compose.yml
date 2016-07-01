@@ -2,11 +2,11 @@ version: '2'
 services:
   db:
     image: postgres
-    # ports:
-    #   - "5432"
+    ports:
+      - "5432:5432"
     environment:
-      # - POSTGRES_USER=authenticator
-      # - POSTGRES_PASSWORD=authenticator
+      - POSTGRES_USER=admin
+      # - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=app
     volumes:
       - "./sql:/docker-entrypoint-initdb.d"
@@ -23,6 +23,7 @@ services:
       - POSTGREST_JWT_SECRET=secret
       # - POSTGREST_MAX_ROWS=null
       # - POSTGREST_FUNCTION=null
+      - POSTGREST_FUNCTION=check_session_id
       # - POSTGREST_POOL=200
       # - POSTGREST_DB_USER=authenticator
       # - POSTGREST_DB_PASS=authenticator

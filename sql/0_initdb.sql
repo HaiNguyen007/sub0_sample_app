@@ -10,6 +10,7 @@
 -- begin;
 alter database app set postgrest.claims.user_id to '';
 alter database app set postgrest.claims.company_id to '';
+alter database app set postgrest.claims.SESSIONID to '';
 create extension pgcrypto;
 -- \ir ./includes/functions.sql
 -- \ir ./includes/data_schema.sql
