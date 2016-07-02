@@ -1,33 +1,36 @@
--- The following function needs to be in the public schema
+-- The following functions need to be in the public schema
 set search_path to public;
-create or replace function check_session_id() returns void
-volatile -- security definer
-language plpgsql
-as $$
+
+create function get_user_id(sess_id text) returns int $$
+begin
+	select user_id from data.sessions where session_id=sess_id::uuid;
+end; $$ language sql stable security definer;
+
+create function get_user(usr_id int) returns table (user_id int, company_id int, user_type text) $$
+begin
+	select id, company_id, user_type from data.users where id=usr_id;
+end; $$ language sql stable security definer;
+
+
+create or replace function check_session_id() returns void as $$
 declare
 	sess_id text;
-	sess data.sessions;
-	usr data.users;
+	usr_id int;
+	usr record;
 begin
 	sess_id = nullif(current_setting('postgrest.claims.cookie.SESSIONID'),'');
 	if sess_id <> '' then
-		select * into sess
-		from data.sessions as s
-		where s.session_id = sess_id::uuid;
-
-		if found then
-			select * into usr
-			from data.users as u
-			where u.id = sess.user_id;
+		select get_user_id(sess_id) into usr_id;
+    	if found then
+			select get_user(usr_id) into usr;
 			if found then
-				execute 'set local postgrest.claims.user_id = ' || quote_literal(sess.user_id);
-				execute 'set local postgrest.claims.company_id = ' || quote_literal(sess.company_id);
+				execute 'set local postgrest.claims.user_id = ' || quote_literal(usr.user_id);
+				execute 'set local postgrest.claims.company_id = ' || quote_literal(usr.company_id);
 				execute 'set local role to ' || quote_ident(usr.user_type::text);
 			end if;
 		end if;
 	end if;
-end
-$$;
+end; $$ language plpgsql volatile;
 
 
 

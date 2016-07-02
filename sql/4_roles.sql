@@ -44,10 +44,10 @@ to administrator;
 
 
 -- this is needed for check_session_id to work without being a security definer
-grant usage on schema data to anonymous;
-grant select
-on data.sessions, data.users
-to anonymous;
+-- grant usage on schema data to anonymous;
+-- grant select
+-- on data.sessions, data.users
+-- to anonymous;
 
 grant execute on function
 login_jwt(text,text),
