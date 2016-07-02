@@ -10,11 +10,12 @@ In addition to "stock PostgREST" this system provides
  - Built-in cache capabilities
  - Ability to manipulate/validate request inflight before they reaches PostgREST using a precomputed AST (eg. enforce at least one filter on the endpoint)
  - An in-browser IDE for exploring your GraphQL schema (complete with documentation generated based on comments you add to the tables/views/columns in PostgreSQL)
+ - &select and filters work on /rpc path, classic `session` login mechanism, custom sql function can be executed on each request (these will be merged upstream soon)
 
 
 This repo contains a sample app that demonstrates the capabilities of Sub0 platform.
 To run this you need to have docker installed on your system and logged in with your dockerhub id.
-At the moment, the images are private so you need to also request access on [Sub0 site](http://graphqlapi.com) for your dockerhub id.
+At the moment, the images are private so you need to also <b>request access on [Sub0 site](http://graphqlapi.com) for your dockerhub id</b>.
 
 ```shellscript
 git clone https://github.com/ruslantalpa/sub0_sample_app.git
