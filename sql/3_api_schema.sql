@@ -5,8 +5,8 @@ create or replace function get_user_id(sess_id text) returns int as $$
 	select user_id from data.sessions where session_id=sess_id::uuid;
 $$ language sql stable security definer;
 
-create or replace function get_user(usr_id int) returns table (user_id int, company_id int, user_role text) as $$
-	select id, company_id, user_type::text as user_role from data.users where id=usr_id;
+create or replace function get_user(usr_id int) returns record as $$
+	select id as user_id, company_id, user_type::text as user_role from data.users where id=usr_id;
 $$ language sql stable security definer;
 
 
@@ -20,9 +20,9 @@ begin
 	if sess_id <> '' then
 		select get_user_id(sess_id) into usr_id;
     	if found then
-			select get_user(usr_id) into usr;
+			select * from get_user(usr_id) as (user_id int, company_id int, user_role text) into usr;
 			if found then
-				execute 'set local postgrest.claims.user_id = ' || quote_literal(usr.id);
+				execute 'set local postgrest.claims.user_id = ' || quote_literal(usr.user_id);
 				execute 'set local postgrest.claims.company_id = ' || quote_literal(usr.company_id);
 				execute 'set local role to ' || quote_ident(usr.user_role);
 			end if;
