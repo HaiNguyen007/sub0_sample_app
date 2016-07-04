@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    #image: postgres #official
+    # image: postgres #official
     image: onjin/alpine-postgres
     ports:
       - "5432:5432"
@@ -40,7 +40,7 @@ services:
       - db:db
       - postgrest:postgrest
     environment:
-      - DEVELOPMENT=0
+      - DEVELOPMENT=1
       # - CACHE_BYPASS=1
       - CACHE_BYPASS=0
       # - POSTGREST_HOST=postgrest
