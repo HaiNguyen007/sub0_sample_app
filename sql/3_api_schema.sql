@@ -22,7 +22,7 @@ begin
     	if found then
 			select get_user(usr_id) into usr;
 			if found then
-				execute 'set local postgrest.claims.user_id = ' || quote_literal(usr.user_id);
+				execute 'set local postgrest.claims.user_id = ' || quote_literal(usr.id);
 				execute 'set local postgrest.claims.company_id = ' || quote_literal(usr.company_id);
 				execute 'set local role to ' || quote_ident(usr.user_role);
 			end if;
@@ -328,15 +328,15 @@ $$ language sql immutable;
 revoke all privileges on function new_client() from public;
 
 
+create or replace function bang(clients) returns text as $$
+   select $1.name || '!' as name;
+$$ language sql immutable;
+revoke all privileges on function bang(clients) from public;
+
 create or replace function sales_tax(subtotal real) returns double precision as $$
   select subtotal * 0.06;
 $$ language sql immutable;
 revoke all privileges on function sales_tax(real) from public;
 
-
-create or replace function bang(clients) returns text as $$
-   select $1.name || '!' as name;
-$$ language sql immutable;
-revoke all privileges on function bang(clients) from public;
 
 
