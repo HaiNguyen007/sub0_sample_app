@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/ruslantalpa/sub0_sample_app.svg)](https://gitter.im/ruslantalpa/sub0_sample_app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Sub0 Platfrom
 -------------
 Sub0 is a collection of docker containers working together to provide an automated REST/GraphQL API over an existing PostgreSQL database.
