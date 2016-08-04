@@ -1,0 +1,71 @@
+# if you want to connect to the db on local host, first add an alias IP to localhost
+# sudo ifconfig lo0 alias 10.0.0.1
+# then edit your db config to have the line
+# listen_addresses="localhost,10.0.0.1"
+# and add this line to pg_hdba.conf
+# host    all             all             10.0.0.1/32             trust
+
+version: '2'
+services:
+  # db:
+  #   image: postgres #official
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_USER=admin
+  #     # - POSTGRES_PASSWORD=admin
+  #     - POSTGRES_DB=app
+  #   volumes:
+  #     - "./sql:/docker-entrypoint-initdb.d"
+  postgrest:
+    image: sub0/postgrest
+    ports:
+      - "3000:3000"
+    # links:
+    #   - db:db
+    environment:
+      - dummy=true
+      - POSTGREST_SCHEMA=test
+      - POSTGREST_ANONYMOUS=postgrest_test_anonymous
+      - POSTGREST_JWT_SECRET=secret
+      # - POSTGREST_MAX_ROWS=null
+      # - POSTGREST_FUNCTION=null
+      # - POSTGREST_POOL=200
+      - POSTGREST_DB_USER=postgrest_test_authenticator
+      # - POSTGREST_DB_PASS=authenticator
+      - POSTGREST_DB_HOST=10.0.0.1
+      - POSTGREST_DB_PORT=5432
+      - POSTGREST_DB_NAME=postgrest_test
+
+  openresty:
+    image: sub0/openresty
+    ports:
+      - "8080:80"
+    links:
+      # - db:db
+      - postgrest:postgrest
+    environment:
+      - DEVELOPMENT=1
+      # - CACHE_BYPASS=1
+      - CACHE_BYPASS=0
+      - POSTGREST_HOST=postgrest
+      - POSTGREST_PORT=3000
+      - DB_SCHEMA=test
+      - DB_HOST=10.0.0.1
+      - DB_PORT=5432
+      - DB_NAME=postgrest_test
+      - DB_USER=postgrest_test_authenticator
+      - DB_PASS=aaa
+    volumes:
+      - "./user_module.lua:/usr/local/openresty/lualib/user_module.lua"
+      # - "./nginx/conf/includes/env_vars.conf:/usr/local/openresty/nginx/conf/includes/env_vars.conf"
+      # - "./nginx/conf/includes/graphql.conf:/usr/local/openresty/nginx/conf/includes/graphql.conf"
+      # - "./nginx/conf/includes/nginx_cache.conf:/usr/local/openresty/nginx/conf/includes/nginx_cache.conf"
+      # - "./nginx/conf/includes/postgrest_upstream.conf:/usr/local/openresty/nginx/conf/includes/postgrest_upstream.conf"
+      # - "./nginx/conf/includes/rest.conf:/usr/local/openresty/nginx/conf/includes/rest.conf"
+      - "./nginx/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
+
+
+
+
+

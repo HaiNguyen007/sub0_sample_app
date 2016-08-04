@@ -35,7 +35,30 @@ local function get_cache_tags(ngx_vars, uri_args, headers, get_ast)
     return {endpoint}
 end
 
+--[[
+Hooks to rename the auto generated names of the types and entrypoints for each table
+--]]
+
+local function table_type_name(table_name)
+    local overrides = {
+        projects = 'MyProject'
+    }
+    return overrides[table_name]
+end
+
+local function entrypoint_name(table_name, single_item)
+    local singular_overrides = {
+        projects = 'my_project'
+    }
+    local plural_overrides = {
+        projects = 'my_projects'
+    }
+    return single_item and singular_overrides[table_name] or plural_overrides[table_name]
+end
+
 return {
-	get_cache_key  = get_cache_key,
-    get_cache_tags = get_cache_tags
+    get_cache_key  = get_cache_key,
+    get_cache_tags = get_cache_tags,
+    table_type_name = table_type_name,
+    entrypoint_name = entrypoint_name
 }
