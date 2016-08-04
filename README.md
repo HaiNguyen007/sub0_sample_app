@@ -25,7 +25,7 @@ cd sub0_sample_app
 docker-compose up
 ```
 
-In your browser navigate to `http://your.docker.machine.ip:8080/graphiql/`
+In your browser navigate to `http://your.docker.machine.ip:8080/graphiql/` (if  you install the latest version v1.12.0 for Mac then it will be your local host `http://127.0.0.1:8080/graphiql/`)
 Toggle the `Docs` panel (top right corner) to explore the types/endpoints
 
 Use this JWT to run queries `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjF9.ate5mETtGRu-mfGF4jFt7pP1b4W85r2uEXt603D7obc`
@@ -46,9 +46,10 @@ You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can
 
 
 After you are logged in (by envoking login_session or by using a JWT value), try these queries
+*Note: the `my_project/my_projects/MyProject` naming is an example of the ability to control the graphql type and endpoint names using functions in user_module.lua file, the same file where you controll the caching logic*
 ```graphql
 {
-  projects {
+  my_projects {
     id
     name
     client {
@@ -66,7 +67,7 @@ After you are logged in (by envoking login_session or by using a JWT value), try
 ```graphql
 mutation {
   insert {
-    project(payload:{name: "New Project", client_id:1}){
+    my_project(payload:{name: "New Project", client_id:1}){
       id
       name
       client {
@@ -81,7 +82,7 @@ mutation {
 ```graphql
 mutation {
   update {
-    project(id: 1, payload:{name: "Updated Name"}){
+    my_project(id: 1, payload:{name: "Updated Name"}){
       id
       name
       client {
@@ -98,5 +99,7 @@ Once you get a feel of how things work and feel adventurous,  try the system wit
  - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f name=sampleapp_,status=exited)` to remove just the containers started as part of this docker-compose sample.)
  - Place your files in the `sql` directory.
  - Start the system again with `docker-compose up`
+
+Alternatively you could just have the containers connecting directly to your database. Edit `docker-compose-external-db.yml`  and then start the containers with `docker-compose -f docker-compose-external-db.yml up`
 
 Another thing to explore is the nginx configurations in the `nginx` directory. Try editing them then uncomment the matching line for that file in `docker-compose.yml` to have the container use your custom file.
