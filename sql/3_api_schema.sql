@@ -37,7 +37,7 @@ set search_path to api, data, public;
 
 
 create or replace view companies as
-select c.node_id, id, name from data.companies as c
+select c.relay_id as id, id as t_id, name from data.companies as c
 where 
 	c.id = app_company_id() and -- filter only current company id
 	(
@@ -46,13 +46,13 @@ where
 	)
 with local check option;
 comment on view   companies is 'Company information';
-comment on column companies.id is 'The primary key for the company';
+comment on column companies.t_id is 'The primary key for the company';
 comment on column companies.name is 'The company';
-comment on column companies.node_id is 'System wide unique id for the company object';
+comment on column companies.id is 'System wide unique id for the company object';
 
 
 create or replace view users as
-select u.node_id, id, name, email, "password", user_type from data.users as u
+select u.relay_id as id, id as t_id, name, email, "password", user_type from data.users as u
 where
 	u.company_id = app_company_id() and -- filter only current company id
 	(
@@ -61,17 +61,17 @@ where
 	)
 with local check option;
 comment on view   users is 'Users information';
-comment on column users.id is 'The primary key for the user';
+comment on column users.t_id is 'The primary key for the user';
 comment on column users.name is 'The name of the user';
 comment on column users.email is 'Email for the user';
 comment on column users.password is 'Password for the user';
 comment on column users.user_type is 'User type, can be employee of admin';
-comment on column users.node_id is 'System wide unique id for the user object';
+comment on column users.id is 'System wide unique id for the user object';
 
 
 
 create or replace view clients as
-select c.node_id, id, name, address from data.clients as c
+select c.relay_id as id, id as t_id, name, address from data.clients as c
 where
 	c.company_id = app_company_id() and -- filter only current company id
 	(
@@ -91,15 +91,15 @@ where
 	)
 with local check option;
 comment on view   clients is 'Client information';
-comment on column clients.id is 'The primary key for the client';
+comment on column clients.t_id is 'The primary key for the client';
 comment on column clients.name is 'The name of the client';
 comment on column clients.address is 'The client address';
-comment on column clients.node_id is 'System wide unique id for the client object';
+comment on column clients.id is 'System wide unique id for the client object';
 
 
 
 create or replace view projects as
-select p.node_id, id, name, client_id from data.projects as p
+select p.relay_id as id, id as t_id, name, client_id from data.projects as p
 where
 	p.company_id = app_company_id() and -- filter only current company id
 	p.client_id in (select id from data.clients as c where c.company_id = app_company_id()) and -- allow client id only from current company (used in insert/update cases)
@@ -115,14 +115,14 @@ where
 	)
 with local check option;
 comment on view   projects is 'Project information';
-comment on column projects.id is 'The primary key for the project';
+comment on column projects.t_id is 'The primary key for the project';
 comment on column projects.name is 'The name of the project';
 comment on column projects.client_id is 'Foreign key reference to client';
-comment on column projects.node_id is 'System wide unique id for the project object';
+comment on column projects.id is 'System wide unique id for the project object';
 
 
 create or replace view tasks as
-select t.node_id, id, name, project_id from data.tasks as t
+select t.relay_id as id, id as t_id, name, project_id from data.tasks as t
 where
 	t.company_id = app_company_id() and -- filter only current company id
 	t.project_id in (select id from data.projects as p where p.company_id = app_company_id()) and -- allow project id only from current company (used in insert/update cases)
@@ -145,15 +145,15 @@ where
 	)
 with local check option;
 comment on view   tasks is 'Task information';
-comment on column tasks.id is 'The primary key for the task';
+comment on column tasks.t_id is 'The primary key for the task';
 comment on column tasks.name is 'The name of the task';
 comment on column tasks.project_id is 'Foreign key reference to project';
-comment on column tasks.node_id is 'System wide unique id for the task object';
+comment on column tasks.id is 'System wide unique id for the task object';
 
 
 
 create or replace view users_projects as
-select up.node_id, user_id, project_id from data.users_projects as up
+select up.relay_id as id, user_id, project_id from data.users_projects as up
 where
 	up.company_id = app_company_id() and -- filter only current company id
 	up.project_id in (select id from data.projects as p where p.company_id = app_company_id()) and -- allow project id only from current company (used in insert/update cases)
@@ -172,12 +172,12 @@ with local check option;
 comment on view   users_projects is 'User - project assignaments';
 comment on column users_projects.user_id is 'Foreign key reference to user';
 comment on column users_projects.project_id is 'Foreign key reference to project';
-comment on column users_projects.node_id is 'System wide unique id for the user_project object';
+comment on column users_projects.id is 'System wide unique id for the user_project object';
 
 
 
 create or replace view users_tasks as
-select ut.node_id, user_id, task_id from data.users_tasks as ut
+select ut.relay_id as id, user_id, task_id from data.users_tasks as ut
 where
 	ut.company_id = app_company_id() and -- filter only current company id
 	ut.user_id in (select id from data.users as u where u.company_id = app_company_id()) and -- allow user id only from current company (used in insert/update cases)
@@ -192,7 +192,7 @@ with local check option;
 comment on view   users_tasks is 'User - task assignaments';
 comment on column users_tasks.user_id is 'Foreign key reference to user';
 comment on column users_tasks.task_id is 'Foreign key reference to task';
-comment on column users_tasks.node_id is 'System wide unique id for the user_project object';
+comment on column users_tasks.id is 'System wide unique id for the user_project object';
 
 
 
@@ -311,8 +311,8 @@ comment on function signup(company_name text, user_name text, email text, passwo
 revoke all privileges on function signup(text, text, text, text) from public;
 
 
-create or replace function get_client(id int) returns api.clients as $$
-   select * from api.clients where id = $1
+create or replace function get_client(t_id int) returns api.clients as $$
+   select * from api.clients where t_id = $1
 $$ language sql immutable;
 revoke all privileges on function get_client(int) from public;
 

@@ -25,10 +25,13 @@ cd sub0_sample_app
 docker-compose up
 ```
 
-In your browser navigate to `http://your.docker.machine.ip:8080/graphiql/` (if  you install the latest version v1.12.0 for Mac then it will be your local host `http://127.0.0.1:8080/graphiql/`)
+In your browser navigate to `http://localhost:8080/graphiql/` (if your docker version is older then v1.12.0 you might need to replace `localhost` with the ip of the docker VM).
 Toggle the `Docs` panel (top right corner) to explore the types/endpoints
 
-Use this JWT to run queries `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjF9.ate5mETtGRu-mfGF4jFt7pP1b4W85r2uEXt603D7obc`
+Use this JWT to run queries 
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjF9.ate5mETtGRu-mfGF4jFt7pP1b4W85r2uEXt603D7obc
+```
 
 You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can use the `session` authentication method by running
 
@@ -46,21 +49,71 @@ You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can
 
 
 After you are logged in (by envoking login_session or by using a JWT value), try these queries
+
 *Note: the `my_project/my_projects/MyProject` naming is an example of the ability to control the graphql type and endpoint names using functions in user_module.lua file, the same file where you controll the caching logic*
 ```graphql
+# Copy/Paste this entire block, everything will be executed in a single round trip
 {
-  my_projects {
-    id
-    name
-    client {
-      id
-      name
-    }
-    tasks {
-      id
-      name
+  # basic request
+  basic:clients{
+    id t_id name
+    my_projects {
+      id t_id name
+      tasks {id t_id name}
+      users {id t_id name}
     }
   }
+
+  # filtering on different levels
+  filtering:my_projects(name: {op: like, val: "Windows*"}){
+    t_id name
+    client {t_id name}
+    tasks(name: {op: like, val: "Design*"}) {t_id name}
+  }
+  
+  # relay node endpoint
+  microsoft:node(id: "Y2xpZW50XzE="){
+    ... on Client {
+      id name
+    }
+  }
+  
+  # relay connections interface
+  win7:node(id: "cHJvamVjdF8x"){
+    ... on MyProject {
+      id name
+      tasks{
+        pageInfo{
+          count hasNextPage hasPreviousPage
+        }
+        edges{
+          cursor
+          node { t_id id name }
+        }
+      }
+    }
+  }
+  
+  # use of fragments
+  fragments:clients{
+    ...clientInfo
+    projects:my_projects {
+      edges {
+        cursor
+        node {
+          ...projectInfo
+        }
+      }
+    }
+  }
+}
+
+fragment clientInfo on Client {
+  id t_id name
+}
+
+fragment projectInfo on MyProject {
+  id t_id name
 }
 ```
 
@@ -98,6 +151,7 @@ Once you get a feel of how things work and feel adventurous,  try the system wit
 
  - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f name=sampleapp_,status=exited)` to remove just the containers started as part of this docker-compose sample.)
  - Place your files in the `sql` directory.
+ - comment the line `- RELAY_ID_COLUMN=id` to disable relay interface deneration
  - Start the system again with `docker-compose up`
 
 Alternatively you could just have the containers connecting directly to your database. Edit `docker-compose-external-db.yml`  and then start the containers with `docker-compose -f docker-compose-external-db.yml up`

@@ -45,6 +45,7 @@ services:
       # - db:db
       - postgrest:postgrest
     environment:
+      # - RELAY_ID_COLUMN=node_id
       - DEVELOPMENT=1
       # - CACHE_BYPASS=1
       - CACHE_BYPASS=0
