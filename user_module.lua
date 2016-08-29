@@ -41,17 +41,17 @@ Hooks to rename the auto generated names of the types and entrypoints for each t
 
 local function table_type_name(table_name)
     local overrides = {
-        projects = 'MyProject'
+        --projects = 'MyProject'
     }
     return overrides[table_name]
 end
 
 local function entrypoint_name(table_name, single_item)
     local singular_overrides = {
-        projects = 'my_project'
+        --projects = 'my_project'
     }
     local plural_overrides = {
-        projects = 'my_projects'
+        --projects = 'my_projects'
     }
     return single_item and singular_overrides[table_name] or plural_overrides[table_name]
 end

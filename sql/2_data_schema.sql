@@ -44,6 +44,7 @@ create sequence public.tasks_seq start 100;
 create table tasks ( 
 	id                   int primary key not null unique default nextval('tasks_seq'),
 	name                 text not null,
+	completed            bool not null default false,
 	project_id           int references projects(id),
 	company_id           int references companies(id) default app_company_id()
 );
@@ -75,37 +76,37 @@ create table sessions (
 
 
 create or replace function relay_id(companies) returns text as $$
-select encode(convert_to('company_' || $1.id::text, 'utf-8'), 'base64')
+select encode(convert_to('company:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on companies (relay_id(companies.*));
 
 create or replace function relay_id(users) returns text as $$
-select encode(convert_to('user_' || $1.id::text, 'utf-8'), 'base64')
+select encode(convert_to('user:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on users (relay_id(users.*));
 
 create or replace function relay_id(clients) returns text as $$
-select encode(convert_to('client_' || $1.id::text, 'utf-8'), 'base64')
+select encode(convert_to('client:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on clients (relay_id(clients.*));
 
 create or replace function relay_id(projects) returns text as $$
-select encode(convert_to('project_' || $1.id::text, 'utf-8'), 'base64')
+select encode(convert_to('project:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on projects (relay_id(projects.*));
 
 create or replace function relay_id(tasks) returns text as $$
-select encode(convert_to('task_' || $1.id::text, 'utf-8'), 'base64')
+select encode(convert_to('task:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on tasks (relay_id(tasks.*));
 
 create or replace function relay_id(users_projects) returns text as $$
-select encode(convert_to('user_project_' || $1.user_id::text || '_' || $1.project_id::text, 'utf-8'), 'base64')
+select encode(convert_to('user_project:' || $1.user_id::text || ':' || $1.project_id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on users_projects (relay_id(users_projects.*));
 
 create or replace function relay_id(users_tasks) returns text as $$
-select encode(convert_to('user_task_' || $1.user_id::text || '_' || $1.task_id::text, 'utf-8'), 'base64')
+select encode(convert_to('user_task:' || $1.user_id::text || ':' || $1.task_id::text, 'utf-8'), 'base64')
 $$ immutable language sql;
 create index on users_tasks (relay_id(users_tasks.*));
 

@@ -19,26 +19,26 @@ insert into users( id, name, email, "password", user_type, company_id ) values
 
 insert into clients( id, name, address, company_id ) values
 ( 1, 'Microsoft', 'Redmond', 1 ),
-( 2, 'Oracle', 'Redwood Shores', 1 ), 
-( 3, 'Apple', 'Cupertino', 2 );
+( 2, 'Apple', 'Cupertino', 1 ),
+( 3, 'Oracle', 'Redwood Shores', 1 );
 
 insert into projects( id, name, client_id, company_id ) values
 ( 1, 'Windows 7', 1, 1 ),
 ( 2, 'Windows 10', 1, 1 ),
-( 3, 'IOS', 2, 2 ),
-( 4, 'OSX', 2, 2 );
+( 3, 'IOS', 2, 1 ),
+( 4, 'OSX', 2, 1 );
 
-insert into tasks( id, name, project_id, company_id ) values
-( 1, 'Design w7', 1, 1 ),
-( 2, 'Code w7', 1, 1 ),
-( 3, 'Unassigned Task', 1, 1 ),
-( 4, 'Design w10', 2, 1 ),
-( 5, 'Code w10', 2, 1 ),
+insert into tasks( id, name, project_id, company_id, completed ) values
+( 1, 'Design w7', 1, 1, true ),
+( 2, 'Code w7', 1, 1, false ),
+( 3, 'Unassigned Task', 1, 1, false ),
+( 4, 'Design w10', 2, 1, false ),
+( 5, 'Code w10', 2, 1, false ),
 
-( 6, 'Design IOS', 3, 2 ),
-( 7, 'Code IOS', 3, 2 ),
-( 8, 'Design OSX', 4, 2 ),
-( 9, 'Code OSX', 4, 2 );
+( 6, 'Design IOS', 3, 1, true ),
+( 7, 'Code IOS', 3, 1, false ),
+( 8, 'Design OSX', 4, 1, false ),
+( 9, 'Code OSX', 4, 1, false );
 
 insert into users_projects( project_id, user_id, company_id ) values
 ( 1, 1, 1 ),
@@ -46,12 +46,12 @@ insert into users_projects( project_id, user_id, company_id ) values
 ( 1, 2, 1 ),
 ( 2, 2, 1 ),
 ( 1, 3, 1 ),
-( 3, 8, 2 ),
-( 3, 9, 2 ),
-( 4, 8, 2 ),
-( 4, 11, 2 );
+( 3, 8, 1 ),
+( 3, 9, 1 ),
+( 4, 8, 1 ),
+( 4, 11, 1 );
 
 insert into users_tasks( task_id, user_id, company_id ) values
 ( 1, 1, 1 ),
 ( 2, 3, 1 ),
-( 5, 8, 2 );
+( 5, 8, 1 );

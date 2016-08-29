@@ -53,11 +53,8 @@ services:
       # - DB_PASS=authenticator
     volumes:
       - "./user_module.lua:/usr/local/openresty/lualib/user_module.lua"
-      # - "./nginx/conf/includes/env_vars.conf:/usr/local/openresty/nginx/conf/includes/env_vars.conf"
-      # - "./nginx/conf/includes/graphql.conf:/usr/local/openresty/nginx/conf/includes/graphql.conf"
-      # - "./nginx/conf/includes/nginx_cache.conf:/usr/local/openresty/nginx/conf/includes/nginx_cache.conf"
-      # - "./nginx/conf/includes/postgrest_upstream.conf:/usr/local/openresty/nginx/conf/includes/postgrest_upstream.conf"
-      # - "./nginx/conf/includes/rest.conf:/usr/local/openresty/nginx/conf/includes/rest.conf"
+      - "./nginx/conf/includes:/usr/local/openresty/nginx/conf/includes"
+      - "./frontend/dist:/usr/local/openresty/nginx/html"
       # - "./nginx/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf"
 
 

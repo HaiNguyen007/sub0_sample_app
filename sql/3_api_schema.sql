@@ -122,7 +122,7 @@ comment on column projects.id is 'System wide unique id for the project object';
 
 
 create or replace view tasks as
-select t.relay_id as id, id as t_id, name, project_id from data.tasks as t
+select t.relay_id as id, id as t_id, name, completed, project_id from data.tasks as t
 where
 	t.company_id = app_company_id() and -- filter only current company id
 	t.project_id in (select id from data.projects as p where p.company_id = app_company_id()) and -- allow project id only from current company (used in insert/update cases)
