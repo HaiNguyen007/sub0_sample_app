@@ -50,58 +50,95 @@ You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can
 
 After you are logged in (by envoking login_session or by using a JWT value), try these queries
 
-*Note: the `my_project/my_projects/MyProject` naming is an example of the ability to control the graphql type and endpoint names using functions in user_module.lua file, the same file where you controll the caching logic*
 ```graphql
 # Copy/Paste this entire block, everything will be executed in a single round trip
 {
   # basic request
-  basic:clients{
-    id t_id name
-    my_projects {
-      id t_id name
-      tasks {id t_id name}
-      users {id t_id name}
+  basic: clients {
+    edges {
+      node {
+        id t_id name
+        projects {
+          edges {
+            node {
+              id t_id name
+              tasks {
+                edges {
+                  node {
+                    id t_id name
+                  }
+                }
+              }
+              users {
+                edges {
+                  node {
+                    id t_id name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
-
+  
   # filtering on different levels
-  filtering:my_projects(name: {op: like, val: "Windows*"}){
-    t_id name
-    client {t_id name}
-    tasks(name: {op: like, val: "Design*"}) {t_id name}
+  filtering: projects(name: {op: like, val: "Windows*"}) {
+    edges {
+      node {
+        t_id name
+        client {
+          t_id name
+        }
+        tasks(completed: {op: eq, val: false}) {
+          edges {
+            node {
+              t_id name completed
+            }
+          }
+        }
+      }
+    }
   }
   
-  # relay node endpoint
-  microsoft:node(id: "Y2xpZW50XzE="){
+  # relay node interface
+  microsoft: node(id: "Y2xpZW50OjE=") {
     ... on Client {
-      id name
+      __typename id name
     }
   }
   
   # relay connections interface
-  win7:node(id: "cHJvamVjdF8x"){
-    ... on MyProject {
-      id name
-      tasks{
-        pageInfo{
+  win7: node(id: "cHJvamVjdDox") {
+    ... on Project {
+      __typename id name
+      tasks {
+        pageInfo {
           count hasNextPage hasPreviousPage
         }
-        edges{
+        edges {
           cursor
-          node { t_id id name }
+          node {
+            t_id id name
+          }
         }
       }
     }
   }
   
   # use of fragments
-  fragments:clients{
-    ...clientInfo
-    projects:my_projects {
-      edges {
-        cursor
-        node {
-          ...projectInfo
+  fragments: clients {
+    edges {
+      node {
+        ...clientInfo
+        projects: projects {
+          edges {
+            cursor
+            node {
+              ...projectInfo
+            }
+          }
         }
       }
     }
@@ -112,7 +149,7 @@ fragment clientInfo on Client {
   id t_id name
 }
 
-fragment projectInfo on MyProject {
+fragment projectInfo on Project {
   id t_id name
 }
 ```
@@ -120,12 +157,11 @@ fragment projectInfo on MyProject {
 ```graphql
 mutation {
   insert {
-    my_project(payload:{name: "New Project", client_id:1}){
+    project(payload:{name: "New Project", client_id:1}){
       id
       name
       client {
-        id
-        name
+        id t_id name
       }
     }
   }
@@ -135,12 +171,11 @@ mutation {
 ```graphql
 mutation {
   update {
-    my_project(id: 1, payload:{name: "Updated Name"}){
+    project(t_id: 1, payload:{name: "Updated Name"}){
       id
       name
       client {
-        id
-        name
+        t_id id name
       }
     }
   }
