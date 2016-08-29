@@ -1,34 +1,13 @@
-# Relay Starter Kit
+This is a React+Relay app that used https://github.com/relayjs/relay-starter-kit as a starting point.
+The entire logic of the app is in the ~200 LOC in `js/app.js`, everything else in this folder is just tooling.
 
-This kit includes an app server, a GraphQL server, and a transpiler that you can use to get started building an app with Relay. For a walkthrough, see the [Relay tutorial](https://facebook.github.io/relay/docs/tutorial.html).
+The docker containers use the compiled version from the dist/ folder.
+If you want to play arround with the frontend, you can recompile it by running
+`npm run build` (remember to run `npm install` before doing that for the first time)
 
-## Installation
+You can also run `npm start` and webpack to serve the app at http://localhost:3000/
+When you database schema changes, you need to run `npm run update-schema`
 
-```
-npm install
-```
-
-## Running
-
-Start a local server:
-
-```
-npm start
-```
-
-## Developing
-
-Any changes you make to files in the `js/` directory will cause the server to
-automatically rebuild the app and refresh your browser.
-
-If at any time you make changes to `data/schema.js`, stop the server,
-regenerate `data/schema.json`, and restart the server:
-
-```
-npm run update-schema
-npm start
-```
-
-## License
-
-Relay Starter Kit is [BSD licensed](./LICENSE). We also provide an additional [patent grant](./PATENTS).
+While the setup of this frontend app works reasonably well, you should not use it as a starting point for your frontend.
+There are much more complex/better staring setups with hot code reload and other tools already setup that will help you a lot
+with your frontend dev process.

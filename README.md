@@ -6,13 +6,13 @@ Sub0 is a collection of docker containers working together to provide an automat
 The platform is built on top of PostgREST and OpenResty (Nginx).
 In addition to "stock PostgREST" this system provides
 
- - GraphQL schema (soon to be Relay compatible)
+ - GraphQL schema (Relay compatible)
  - Everything is in docker for easy install/extension
  - PostgREST runs behind the nginx proxy to provide security/ssl/flexibility
  - Built-in cache capabilities
  - Ability to manipulate/validate request inflight before they reaches PostgREST using a precomputed AST (eg. enforce at least one filter on the endpoint)
  - An in-browser IDE for exploring your GraphQL schema (complete with documentation generated based on comments you add to the tables/views/columns in PostgreSQL)
- - &select and filters work on /rpc path, classic `session` login mechanism, custom sql function can be executed on each request (these will be merged upstream soon)
+ - classic `session` login mechanism, custom sql function can be executed on each request (these will be merged upstream soon)
 
 
 This repo contains a sample app that demonstrates the capabilities of Sub0 platform.
@@ -25,7 +25,9 @@ cd sub0_sample_app
 docker-compose up
 ```
 
-In your browser navigate to `http://localhost:8080/graphiql/` (if your docker version is older then v1.12.0 you might need to replace `localhost` with the ip of the docker VM).
+In your browser navigate to `http://localhost:8080/` and see a React+Relay based app running and pulling data from the database (check out the frontend folder for details).
+
+To explore the generated GraphQL schema, go to `http://localhost:8080/graphiql/` 
 Toggle the `Docs` panel (top right corner) to explore the types/endpoints
 
 Use this JWT to run queries 
@@ -186,7 +188,7 @@ Once you get a feel of how things work and feel adventurous,  try the system wit
 
  - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f name=sampleapp_,status=exited)` to remove just the containers started as part of this docker-compose sample.)
  - Place your files in the `sql` directory.
- - comment the line `- RELAY_ID_COLUMN=id` to disable relay interface deneration
+ - comment the line `- RELAY_ID_COLUMN=id` to disable relay interface generation (you can leave this on if your tables have an `id` column which is globally unique and generated like so `base64('table_name:idvalue')`)
  - Start the system again with `docker-compose up`
 
 Alternatively you could just have the containers connecting directly to your database. Edit `docker-compose-external-db.yml`  and then start the containers with `docker-compose -f docker-compose-external-db.yml up`
