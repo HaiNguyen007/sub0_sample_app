@@ -417,6 +417,41 @@
               "args": [],
               "type": {
                 "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
+              },
+              "name": "cursor",
+              "description": null
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "User_Project",
+                "kind": "OBJECT"
+              },
+              "name": "node",
+              "description": null
+            }
+          ],
+          "kind": "OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "User_Project_Edges",
+          "description": null
+        },
+        {
+          "interfaces": [],
+          "inputFields": null,
+          "fields": [
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
                 "name": "PageInfo",
                 "kind": "OBJECT"
               },
@@ -451,11 +486,15 @@
               "deprecationReason": null,
               "args": [],
               "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
+                "ofType": {
+                  "ofType": null,
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                },
+                "name": null,
+                "kind": "NON_NULL"
               },
-              "name": "cursor",
+              "name": "isDeprecated",
               "description": null
             },
             {
@@ -464,69 +503,86 @@
               "args": [],
               "type": {
                 "ofType": null,
-                "name": "Client",
-                "kind": "OBJECT"
+                "name": "String",
+                "kind": "SCALAR"
               },
-              "name": "node",
+              "name": "deprecationReason",
+              "description": null
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "__InputValue",
+                      "kind": "OBJECT"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "name": null,
+                  "kind": "LIST"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "args",
+              "description": null
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "__Type",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "type",
+              "description": null
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "String",
+                  "kind": "SCALAR"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "name",
+              "description": null
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
+              },
+              "name": "description",
               "description": null
             }
           ],
           "kind": "OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "Client_Edges",
-          "description": null
-        },
-        {
-          "interfaces": null,
-          "inputFields": [
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "t_id",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "project_id",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "name",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "Boolean",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "completed",
-              "defaultValue": null
-            }
-          ],
-          "fields": null,
-          "kind": "INPUT_OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "Task_Payload",
-          "description": "Values for insert/update"
+          "name": "__Field",
+          "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type."
         },
         {
           "interfaces": [
@@ -899,113 +955,6 @@
           "description": null
         },
         {
-          "interfaces": [],
-          "inputFields": null,
-          "fields": [
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Boolean",
-                  "kind": "SCALAR"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "isDeprecated",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "name": "deprecationReason",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "__InputValue",
-                      "kind": "OBJECT"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "name": null,
-                  "kind": "LIST"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "args",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "__Type",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "type",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "String",
-                  "kind": "SCALAR"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "name",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "name": "description",
-              "description": null
-            }
-          ],
-          "kind": "OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "__Field",
-          "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type."
-        },
-        {
           "interfaces": null,
           "inputFields": null,
           "fields": null,
@@ -1063,6 +1012,47 @@
           "possibleTypes": null,
           "name": "__TypeKind",
           "description": "An enum describing what kind of type a given `__Type` is."
+        },
+        {
+          "interfaces": null,
+          "inputFields": [
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "client_id",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "name",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "t_id",
+              "defaultValue": null
+            }
+          ],
+          "fields": null,
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "Project_Input",
+          "description": "Values for insert/update"
         },
         {
           "interfaces": [],
@@ -1308,70 +1298,14 @@
             {
               "isDeprecated": false,
               "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "ID",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "ofType": null,
-                "name": "Node",
-                "kind": "INTERFACE"
-              },
-              "name": "node",
-              "description": "Get a node by id"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for task_id",
-                  "name": "task_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Task",
+                "name": "RPC",
                 "kind": "OBJECT"
               },
-              "name": "user_task",
-              "description": "Get a single item to type `User_Task`"
+              "name": "rpc",
+              "description": null
             },
             {
               "isDeprecated": false,
@@ -1570,36 +1504,6 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "project_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "limit",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "before",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
                     "name": "Int",
                     "kind": "SCALAR"
                   },
@@ -1610,155 +1514,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Boolean_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "completed",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
                     "name": "Integer_Filter",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Task_Connection",
-                "kind": "OBJECT"
-              },
-              "name": "tasks",
-              "description": "Entry point to `tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for project_id",
-                  "name": "project_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Project",
-                "kind": "OBJECT"
-              },
-              "name": "user_project",
-              "description": "Get a single item to type `User_Project`"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "OrderInput",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "order",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "after",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "last",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "first",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "address",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "offset",
+                  "name": "client_id",
                   "defaultValue": null
                 },
                 {
@@ -1804,85 +1564,11 @@
               ],
               "type": {
                 "ofType": null,
-                "name": "Client_Connection",
+                "name": "Project_Connection",
                 "kind": "OBJECT"
               },
-              "name": "clients",
-              "description": "Entry point to `clients` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": {
-                        "ofType": null,
-                        "name": "ID",
-                        "kind": "SCALAR"
-                      },
-                      "name": null,
-                      "kind": "LIST"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": null,
-                  "name": "ids",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Node",
-                  "kind": "INTERFACE"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "nodes",
-              "description": "Get a nodes by id"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "RPC",
-                "kind": "OBJECT"
-              },
-              "name": "rpc",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for t_id",
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User",
-                "kind": "OBJECT"
-              },
-              "name": "user",
-              "description": "Get a single item to type `User`"
+              "name": "projects",
+              "description": "Entry point to `projects` table"
             },
             {
               "isDeprecated": false,
@@ -2003,112 +1689,26 @@
               "args": [
                 {
                   "type": {
-                    "ofType": null,
-                    "name": "OrderInput",
-                    "kind": "INPUT_OBJECT"
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
                   },
-                  "description": null,
-                  "name": "order",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "after",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "last",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "first",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "limit",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "before",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
+                  "description": "Primay key value for t_id",
                   "name": "t_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "offset",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": null,
-                "name": "Company_Connection",
+                "name": "Task",
                 "kind": "OBJECT"
               },
-              "name": "companies",
-              "description": "Entry point to `companies` table"
+              "name": "task",
+              "description": "Get a single item to type `Task`"
             },
             {
               "isDeprecated": false,
@@ -2276,6 +1876,74 @@
               "args": [
                 {
                   "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for project_id",
+                  "name": "project_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Project",
+                "kind": "OBJECT"
+              },
+              "name": "user_project",
+              "description": "Get a single item to type `User_Project`"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for t_id",
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Company",
+                "kind": "OBJECT"
+              },
+              "name": "company",
+              "description": "Get a single item to type `Company`"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
                     "ofType": null,
                     "name": "OrderInput",
                     "kind": "INPUT_OBJECT"
@@ -2331,7 +1999,17 @@
                     "kind": "SCALAR"
                   },
                   "description": null,
-                  "name": "offset",
+                  "name": "limit",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "before",
                   "defaultValue": null
                 },
                 {
@@ -2341,7 +2019,110 @@
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "client_id",
+                  "name": "t_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Company_Connection",
+                "kind": "OBJECT"
+              },
+              "name": "companies",
+              "description": "Entry point to `companies` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "OrderInput",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "order",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "after",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "last",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "first",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "address",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
                   "defaultValue": null
                 },
                 {
@@ -2387,11 +2168,52 @@
               ],
               "type": {
                 "ofType": null,
-                "name": "Project_Connection",
+                "name": "Client_Connection",
                 "kind": "OBJECT"
               },
-              "name": "projects",
-              "description": "Entry point to `projects` table"
+              "name": "clients",
+              "description": "Entry point to `clients` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for task_id",
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Task",
+                "kind": "OBJECT"
+              },
+              "name": "user_task",
+              "description": "Get a single item to type `User_Task`"
             },
             {
               "isDeprecated": false,
@@ -2414,11 +2236,11 @@
               ],
               "type": {
                 "ofType": null,
-                "name": "Task",
+                "name": "User",
                 "kind": "OBJECT"
               },
-              "name": "task",
-              "description": "Get a single item to type `Task`"
+              "name": "user",
+              "description": "Get a single item to type `User`"
             },
             {
               "isDeprecated": false,
@@ -2426,26 +2248,132 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
+                    "ofType": null,
+                    "name": "OrderInput",
+                    "kind": "INPUT_OBJECT"
                   },
-                  "description": "Primay key value for t_id",
+                  "description": null,
+                  "name": "order",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "after",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "last",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "first",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "project_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "limit",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "before",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Boolean_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "completed",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
                   "name": "t_id",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": null,
-                "name": "Company",
+                "name": "Task_Connection",
                 "kind": "OBJECT"
               },
-              "name": "company",
-              "description": "Get a single item to type `Company`"
+              "name": "tasks",
+              "description": "Entry point to `tasks` table"
             }
           ],
           "kind": "OBJECT",
@@ -2484,6 +2412,184 @@
               },
               "name": "client",
               "description": "delete single from `clients` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "User_Task",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "users_tasks",
+              "description": "Delete items from `users_tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "client_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Project",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "projects",
+              "description": "Delete items from `projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "project_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "User_Project",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "users_projects",
+              "description": "Delete items from `users_projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for t_id",
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Task",
+                "kind": "OBJECT"
+              },
+              "name": "task",
+              "description": "delete single from `tasks` table"
             },
             {
               "isDeprecated": false,
@@ -2558,57 +2664,6 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for task_id",
-                  "name": "task_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Task",
-                "kind": "OBJECT"
-              },
-              "name": "user_task",
-              "description": "delete single from `users_tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
                     "ofType": null,
                     "name": "Integer_Filter",
                     "kind": "INPUT_OBJECT"
@@ -2620,38 +2675,21 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Text_Filter",
+                    "name": "Integer_Filter",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "id",
+                  "name": "t_id",
                   "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "User_Project",
-                  "kind": "OBJECT"
                 },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "users_projects",
-              "description": "Delete items from `users_projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Text_Filter",
+                    "name": "Boolean_Filter",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "id",
+                  "name": "completed",
                   "defaultValue": null
                 },
                 {
@@ -2667,53 +2705,6 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Company",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "companies",
-              "description": "Delete items from `companies` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "task_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
                     "name": "Text_Filter",
                     "kind": "INPUT_OBJECT"
                   },
@@ -2725,41 +2716,14 @@
               "type": {
                 "ofType": {
                   "ofType": null,
-                  "name": "User_Task",
+                  "name": "Task",
                   "kind": "OBJECT"
                 },
                 "name": null,
                 "kind": "LIST"
               },
-              "name": "users_tasks",
-              "description": "Delete items from `users_tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for t_id",
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Company",
-                "kind": "OBJECT"
-              },
-              "name": "company",
-              "description": "delete single from `companies` table"
+              "name": "tasks",
+              "description": "Delete items from `tasks` table"
             },
             {
               "isDeprecated": false,
@@ -2823,11 +2787,11 @@
               ],
               "type": {
                 "ofType": null,
-                "name": "Task",
+                "name": "Company",
                 "kind": "OBJECT"
               },
-              "name": "task",
-              "description": "delete single from `tasks` table"
+              "name": "company",
+              "description": "delete single from `companies` table"
             },
             {
               "isDeprecated": false,
@@ -2836,31 +2800,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Integer_Filter",
+                    "name": "Text_Filter",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "project_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Boolean_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "completed",
+                  "name": "id",
                   "defaultValue": null
                 },
                 {
@@ -2876,25 +2820,25 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Text_Filter",
+                    "name": "Integer_Filter",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "id",
+                  "name": "t_id",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": {
                   "ofType": null,
-                  "name": "Task",
+                  "name": "Company",
                   "kind": "OBJECT"
                 },
                 "name": null,
                 "kind": "LIST"
               },
-              "name": "tasks",
-              "description": "Delete items from `tasks` table"
+              "name": "companies",
+              "description": "Delete items from `companies` table"
             },
             {
               "isDeprecated": false,
@@ -2967,6 +2911,47 @@
                     "name": null,
                     "kind": "NON_NULL"
                   },
+                  "description": "Primay key value for task_id",
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Task",
+                "kind": "OBJECT"
+              },
+              "name": "user_task",
+              "description": "delete single from `users_tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
                   "description": "Primay key value for t_id",
                   "name": "t_id",
                   "defaultValue": null
@@ -2979,63 +2964,6 @@
               },
               "name": "user",
               "description": "delete single from `users` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "client_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Project",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "projects",
-              "description": "Delete items from `projects` table"
             },
             {
               "isDeprecated": false,
@@ -3713,119 +3641,67 @@
           "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name and description, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types."
         },
         {
-          "interfaces": [],
-          "inputFields": null,
-          "fields": [
+          "interfaces": null,
+          "inputFields": [
             {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "__Type",
-                "kind": "OBJECT"
-              },
-              "name": "mutationType",
-              "description": "If this server supports mutation, the type that mutation operations will be rooted at."
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "__Type",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "queryType",
-              "description": "The type that query operations will be rooted at."
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "__Type",
-                "kind": "OBJECT"
-              },
-              "name": "subscriptionType",
-              "description": "If this server support subscription, the type that subscription operations will be rooted at."
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "__Type",
-                      "kind": "OBJECT"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "name": null,
-                  "kind": "LIST"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "types",
-              "description": "A list of all types supported by this server."
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": {
-                  "ofType": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "__Directive",
-                      "kind": "OBJECT"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "name": null,
-                  "kind": "LIST"
-                },
-                "name": null,
-                "kind": "NON_NULL"
-              },
-              "name": "directives",
-              "description": "A list of all directives supported by this server."
-            }
-          ],
-          "kind": "OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "__Schema",
-          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations."
-        },
-        {
-          "interfaces": [],
-          "inputFields": null,
-          "fields": [
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
               "type": {
                 "ofType": null,
                 "name": "String",
                 "kind": "SCALAR"
               },
-              "name": "cursor",
-              "description": null
+              "description": null,
+              "name": "address",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "name",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "t_id",
+              "defaultValue": null
+            }
+          ],
+          "fields": null,
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "Client_Input",
+          "description": "Values for insert/update"
+        },
+        {
+          "interfaces": [
+            {
+              "ofType": null,
+              "name": "Node",
+              "kind": "INTERFACE"
+            }
+          ],
+          "inputFields": null,
+          "fields": [
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "Project",
+                "kind": "OBJECT"
+              },
+              "name": "project",
+              "description": "Connection to parent `project`"
             },
             {
               "isDeprecated": false,
@@ -3833,18 +3709,54 @@
               "args": [],
               "type": {
                 "ofType": null,
-                "name": "User_Task",
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "name": "project_id",
+              "description": "Foreign key reference to project"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "ID",
+                "kind": "SCALAR"
+              },
+              "name": "id",
+              "description": "System wide unique id for the user_project object"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "name": "user_id",
+              "description": "Foreign key reference to user"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "User",
                 "kind": "OBJECT"
               },
-              "name": "node",
-              "description": null
+              "name": "user",
+              "description": "Connection to parent `user`"
             }
           ],
           "kind": "OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "User_Task_Edges",
-          "description": null
+          "name": "User_Project",
+          "description": "User - project assignaments"
         },
         {
           "interfaces": null,
@@ -3853,7 +3765,121 @@
           "kind": "SCALAR",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "ID",
+          "name": "Int",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. "
+        },
+        {
+          "interfaces": null,
+          "inputFields": [
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "task_id",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "user_id",
+              "defaultValue": null
+            }
+          ],
+          "fields": null,
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "User_Task_Input",
+          "description": "Values for insert/update"
+        },
+        {
+          "interfaces": null,
+          "inputFields": null,
+          "fields": null,
+          "kind": "ENUM",
+          "enumValues": [
+            {
+              "isDeprecated": false,
+              "name": "in",
+              "deprecationReason": null,
+              "description": "`in` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "like",
+              "deprecationReason": null,
+              "description": "`like` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "ltat",
+              "deprecationReason": null,
+              "description": "`<@` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "lte",
+              "deprecationReason": null,
+              "description": "`<=` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "atgt",
+              "deprecationReason": null,
+              "description": "`@>` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "ilike",
+              "deprecationReason": null,
+              "description": "`ilike` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "is",
+              "deprecationReason": null,
+              "description": "`is` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "lt",
+              "deprecationReason": null,
+              "description": "`<` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "eq",
+              "deprecationReason": null,
+              "description": "`=` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "gt",
+              "deprecationReason": null,
+              "description": "`>` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "gte",
+              "deprecationReason": null,
+              "description": "`>=` operator"
+            },
+            {
+              "isDeprecated": false,
+              "name": "atat",
+              "deprecationReason": null,
+              "description": "`@@` operator"
+            }
+          ],
+          "possibleTypes": null,
+          "name": "Operator",
           "description": null
         },
         {
@@ -3904,113 +3930,6 @@
           "description": null
         },
         {
-          "interfaces": [],
-          "inputFields": null,
-          "fields": [
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "PageInfo",
-                "kind": "OBJECT"
-              },
-              "name": "pageInfo",
-              "description": null
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "Project_Edges",
-                "kind": "OBJECT"
-              },
-              "name": "edges",
-              "description": null
-            }
-          ],
-          "kind": "OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "Project_Connection",
-          "description": null
-        },
-        {
-          "interfaces": null,
-          "inputFields": [
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "task_id",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "user_id",
-              "defaultValue": null
-            }
-          ],
-          "fields": null,
-          "kind": "INPUT_OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "User_Task_Payload",
-          "description": "Values for insert/update"
-        },
-        {
-          "interfaces": null,
-          "inputFields": [
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "client_id",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "name",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "t_id",
-              "defaultValue": null
-            }
-          ],
-          "fields": null,
-          "kind": "INPUT_OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "Project_Payload",
-          "description": "Values for insert/update"
-        },
-        {
           "interfaces": null,
           "inputFields": [
             {
@@ -4038,7 +3957,58 @@
           "kind": "INPUT_OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "Company_Payload",
+          "name": "Company_Input",
+          "description": "Values for insert/update"
+        },
+        {
+          "interfaces": null,
+          "inputFields": [
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "t_id",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "Int",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "project_id",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "name",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": null,
+                "name": "Boolean",
+                "kind": "SCALAR"
+              },
+              "description": null,
+              "name": "completed",
+              "defaultValue": null
+            }
+          ],
+          "fields": null,
+          "kind": "INPUT_OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "Task_Input",
           "description": "Values for insert/update"
         },
         {
@@ -4127,40 +4097,122 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
+                    "ofType": null,
+                    "name": "OrderInput",
+                    "kind": "INPUT_OBJECT"
                   },
-                  "description": "Primay key value for task_id",
-                  "name": "task_id",
+                  "description": null,
+                  "name": "order",
                   "defaultValue": null
                 },
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
                   },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
+                  "description": null,
+                  "name": "after",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "last",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "first",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "client_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "before",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "limit",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "t_id",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": null,
-                "name": "User_Task",
+                "name": "Project_Connection",
                 "kind": "OBJECT"
               },
-              "name": "user_task",
-              "description": "Get a single item to type `User_Task`"
+              "name": "projects",
+              "description": "Entry point to `projects` table"
             },
             {
               "isDeprecated": false,
@@ -4308,132 +4360,26 @@
               "args": [
                 {
                   "type": {
-                    "ofType": null,
-                    "name": "OrderInput",
-                    "kind": "INPUT_OBJECT"
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
                   },
-                  "description": null,
-                  "name": "order",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "after",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "last",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "first",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "project_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "limit",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "before",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "offset",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Boolean_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "completed",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
+                  "description": "Primay key value for t_id",
                   "name": "t_id",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": null,
-                "name": "Task_Connection",
+                "name": "Company",
                 "kind": "OBJECT"
               },
-              "name": "tasks",
-              "description": "Entry point to `tasks` table"
+              "name": "company",
+              "description": "Get a single item to type `Company`"
             },
             {
               "isDeprecated": false,
@@ -4792,26 +4738,112 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
+                    "ofType": null,
+                    "name": "OrderInput",
+                    "kind": "INPUT_OBJECT"
                   },
-                  "description": "Primay key value for t_id",
+                  "description": null,
+                  "name": "order",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "after",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "last",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "first",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "limit",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "before",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
                   "name": "t_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": null,
-                "name": "Task",
+                "name": "Company_Connection",
                 "kind": "OBJECT"
               },
-              "name": "task",
-              "description": "Get a single item to type `Task`"
+              "name": "companies",
+              "description": "Entry point to `companies` table"
             },
             {
               "isDeprecated": false,
@@ -4964,242 +4996,6 @@
               "args": [
                 {
                   "type": {
-                    "ofType": null,
-                    "name": "OrderInput",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "order",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "after",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "last",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "first",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "offset",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "client_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "before",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "limit",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Project_Connection",
-                "kind": "OBJECT"
-              },
-              "name": "projects",
-              "description": "Entry point to `projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "OrderInput",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "order",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "after",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "last",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "first",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "limit",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "String",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "before",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Int",
-                    "kind": "SCALAR"
-                  },
-                  "description": null,
-                  "name": "offset",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Company_Connection",
-                "kind": "OBJECT"
-              },
-              "name": "companies",
-              "description": "Entry point to `companies` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
                     "ofType": {
                       "ofType": null,
                       "name": "Int",
@@ -5235,6 +5031,47 @@
                     "name": null,
                     "kind": "NON_NULL"
                   },
+                  "description": "Primay key value for task_id",
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Task",
+                "kind": "OBJECT"
+              },
+              "name": "user_task",
+              "description": "Get a single item to type `User_Task`"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
                   "description": "Primay key value for t_id",
                   "name": "t_id",
                   "defaultValue": null
@@ -5242,11 +5079,144 @@
               ],
               "type": {
                 "ofType": null,
-                "name": "Company",
+                "name": "Task",
                 "kind": "OBJECT"
               },
-              "name": "company",
-              "description": "Get a single item to type `Company`"
+              "name": "task",
+              "description": "Get a single item to type `Task`"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "OrderInput",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "order",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "after",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "last",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "first",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "project_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "limit",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "String",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "before",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Int",
+                    "kind": "SCALAR"
+                  },
+                  "description": null,
+                  "name": "offset",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Boolean_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "completed",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Task_Connection",
+                "kind": "OBJECT"
+              },
+              "name": "tasks",
+              "description": "Entry point to `tasks` table"
             }
           ],
           "kind": "OBJECT",
@@ -5254,47 +5224,6 @@
           "possibleTypes": null,
           "name": "Query",
           "description": null
-        },
-        {
-          "interfaces": null,
-          "inputFields": [
-            {
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "address",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "String",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "name",
-              "defaultValue": null
-            },
-            {
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "description": null,
-              "name": "t_id",
-              "defaultValue": null
-            }
-          ],
-          "fields": null,
-          "kind": "INPUT_OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "Client_Payload",
-          "description": "Values for insert/update"
         },
         {
           "interfaces": null,
@@ -5344,7 +5273,7 @@
           "kind": "INPUT_OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "User_Payload",
+          "name": "User_Input",
           "description": "Values for insert/update"
         },
         {
@@ -5375,8 +5304,107 @@
           "kind": "INPUT_OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "User_Project_Payload",
+          "name": "User_Project_Input",
           "description": "Values for insert/update"
+        },
+        {
+          "interfaces": [],
+          "inputFields": null,
+          "fields": [
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "__Type",
+                "kind": "OBJECT"
+              },
+              "name": "mutationType",
+              "description": "If this server supports mutation, the type that mutation operations will be rooted at."
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "__Type",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "queryType",
+              "description": "The type that query operations will be rooted at."
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "__Type",
+                "kind": "OBJECT"
+              },
+              "name": "subscriptionType",
+              "description": "If this server support subscription, the type that subscription operations will be rooted at."
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "__Type",
+                      "kind": "OBJECT"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "name": null,
+                  "kind": "LIST"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "types",
+              "description": "A list of all types supported by this server."
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
+              "type": {
+                "ofType": {
+                  "ofType": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "__Directive",
+                      "kind": "OBJECT"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "name": null,
+                  "kind": "LIST"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "name": "directives",
+              "description": "A list of all directives supported by this server."
+            }
+          ],
+          "kind": "OBJECT",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "__Schema",
+          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations."
         },
         {
           "interfaces": [],
@@ -5389,11 +5417,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Client_Payload",
+                    "name": "Client_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -5426,6 +5454,224 @@
                 {
                   "type": {
                     "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Task_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "User_Task",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "users_tasks",
+              "description": "Update multiple items in `users_tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Project_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "client_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Project",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "projects",
+              "description": "Update multiple items in `projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "project_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Project_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "User_Project",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "users_projects",
+              "description": "Update multiple items in `users_projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Task_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for t_id",
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Task",
+                "kind": "OBJECT"
+              },
+              "name": "task",
+              "description": "Update single item in `tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
                     "name": "Text_Filter",
                     "kind": "INPUT_OBJECT"
                   },
@@ -5446,11 +5692,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "User_Payload",
+                    "name": "User_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -5502,359 +5748,12 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for task_id",
-                  "name": "task_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
                     "ofType": null,
-                    "name": "User_Task_Payload",
+                    "name": "Task_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Task",
-                "kind": "OBJECT"
-              },
-              "name": "user_task",
-              "description": "Update single item in `users_tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "project_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "User_Project_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "User_Project",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "users_projects",
-              "description": "Update multiple items in `users_projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Company_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Company",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "companies",
-              "description": "Update multiple items in `companies` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "User_Task_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "task_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "User_Task",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "users_tasks",
-              "description": "Update multiple items in `users_tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Company_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for t_id",
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Company",
-                "kind": "OBJECT"
-              },
-              "name": "company",
-              "description": "Update single item in `companies` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for user_id",
-                  "name": "user_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for project_id",
-                  "name": "project_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "User_Project_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Project",
-                "kind": "OBJECT"
-              },
-              "name": "user_project",
-              "description": "Update single item in `users_projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Task_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Int",
-                      "kind": "SCALAR"
-                    },
-                    "name": null,
-                    "kind": "NON_NULL"
-                  },
-                  "description": "Primay key value for t_id",
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Task",
-                "kind": "OBJECT"
-              },
-              "name": "task",
-              "description": "Update single item in `tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Task_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -5926,6 +5825,151 @@
               "args": [
                 {
                   "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for project_id",
+                  "name": "project_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Project_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Project",
+                "kind": "OBJECT"
+              },
+              "name": "user_project",
+              "description": "Update single item in `users_projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Company_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for t_id",
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Company",
+                "kind": "OBJECT"
+              },
+              "name": "company",
+              "description": "Update single item in `companies` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Company_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Text_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "name",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Integer_Filter",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "t_id",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Company",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "companies",
+              "description": "Update multiple items in `companies` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
                     "ofType": null,
                     "name": "Text_Filter",
                     "kind": "INPUT_OBJECT"
@@ -5947,11 +5991,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Client_Payload",
+                    "name": "Client_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -5993,12 +6037,63 @@
               "args": [
                 {
                   "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for user_id",
+                  "name": "user_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Int",
+                      "kind": "SCALAR"
+                    },
+                    "name": null,
+                    "kind": "NON_NULL"
+                  },
+                  "description": "Primay key value for task_id",
+                  "name": "task_id",
+                  "defaultValue": null
+                },
+                {
+                  "type": {
                     "ofType": null,
-                    "name": "User_Payload",
+                    "name": "User_Task_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Task",
+                "kind": "OBJECT"
+              },
+              "name": "user_task",
+              "description": "Update single item in `users_tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -6031,78 +6126,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Project_Payload",
+                    "name": "Project_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "client_id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "id",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Text_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "name",
-                  "defaultValue": null
-                },
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Integer_Filter",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "t_id",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Project",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "projects",
-              "description": "Update multiple items in `projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Project_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 },
                 {
@@ -6531,11 +6559,11 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "Client_Payload",
+                    "name": "Client_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -6555,51 +6583,28 @@
                   "type": {
                     "ofType": {
                       "ofType": null,
-                      "name": "User_Payload",
+                      "name": "User_Task_Input",
                       "kind": "INPUT_OBJECT"
                     },
                     "name": null,
                     "kind": "LIST"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
               "type": {
                 "ofType": {
                   "ofType": null,
-                  "name": "User",
+                  "name": "User_Task",
                   "kind": "OBJECT"
                 },
                 "name": null,
                 "kind": "LIST"
               },
-              "name": "users",
-              "description": "Insert items into `users` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "User_Task_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Task",
-                "kind": "OBJECT"
-              },
-              "name": "user_task",
-              "description": "Insert single item into `users_tasks` table"
+              "name": "users_tasks",
+              "description": "Insert items into `users_tasks` table"
             },
             {
               "isDeprecated": false,
@@ -6609,14 +6614,45 @@
                   "type": {
                     "ofType": {
                       "ofType": null,
-                      "name": "User_Project_Payload",
+                      "name": "Project_Input",
                       "kind": "INPUT_OBJECT"
                     },
                     "name": null,
                     "kind": "LIST"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Project",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "projects",
+              "description": "Insert items into `projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "User_Project_Input",
+                      "kind": "INPUT_OBJECT"
+                    },
+                    "name": null,
+                    "kind": "LIST"
+                  },
+                  "description": null,
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -6638,16 +6674,147 @@
               "args": [
                 {
                   "type": {
+                    "ofType": null,
+                    "name": "Task_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Task",
+                "kind": "OBJECT"
+              },
+              "name": "task",
+              "description": "Insert single item into `tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
                     "ofType": {
                       "ofType": null,
-                      "name": "Company_Payload",
+                      "name": "User_Input",
                       "kind": "INPUT_OBJECT"
                     },
                     "name": null,
                     "kind": "LIST"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "User",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "users",
+              "description": "Insert items into `users` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Task_Input",
+                      "kind": "INPUT_OBJECT"
+                    },
+                    "name": null,
+                    "kind": "LIST"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Task",
+                  "kind": "OBJECT"
+                },
+                "name": null,
+                "kind": "LIST"
+              },
+              "name": "tasks",
+              "description": "Insert items into `tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Project_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Project",
+                "kind": "OBJECT"
+              },
+              "name": "user_project",
+              "description": "Insert single item into `users_projects` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "Company_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "Company",
+                "kind": "OBJECT"
+              },
+              "name": "company",
+              "description": "Insert single item into `companies` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": {
+                      "ofType": null,
+                      "name": "Company_Input",
+                      "kind": "INPUT_OBJECT"
+                    },
+                    "name": null,
+                    "kind": "LIST"
+                  },
+                  "description": null,
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -6671,145 +6838,14 @@
                   "type": {
                     "ofType": {
                       "ofType": null,
-                      "name": "User_Task_Payload",
+                      "name": "Client_Input",
                       "kind": "INPUT_OBJECT"
                     },
                     "name": null,
                     "kind": "LIST"
                   },
                   "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "User_Task",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "users_tasks",
-              "description": "Insert items into `users_tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Company_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Company",
-                "kind": "OBJECT"
-              },
-              "name": "company",
-              "description": "Insert single item into `companies` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "User_Project_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "User_Project",
-                "kind": "OBJECT"
-              },
-              "name": "user_project",
-              "description": "Insert single item into `users_projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": null,
-                    "name": "Task_Payload",
-                    "kind": "INPUT_OBJECT"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": null,
-                "name": "Task",
-                "kind": "OBJECT"
-              },
-              "name": "task",
-              "description": "Insert single item into `tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Task_Payload",
-                      "kind": "INPUT_OBJECT"
-                    },
-                    "name": null,
-                    "kind": "LIST"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Task",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "tasks",
-              "description": "Insert items into `tasks` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Client_Payload",
-                      "kind": "INPUT_OBJECT"
-                    },
-                    "name": null,
-                    "kind": "LIST"
-                  },
-                  "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -6832,11 +6868,34 @@
                 {
                   "type": {
                     "ofType": null,
-                    "name": "User_Payload",
+                    "name": "User_Task_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "ofType": null,
+                "name": "User_Task",
+                "kind": "OBJECT"
+              },
+              "name": "user_task",
+              "description": "Insert single item into `users_tasks` table"
+            },
+            {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [
+                {
+                  "type": {
+                    "ofType": null,
+                    "name": "User_Input",
+                    "kind": "INPUT_OBJECT"
+                  },
+                  "description": null,
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -6854,43 +6913,12 @@
               "args": [
                 {
                   "type": {
-                    "ofType": {
-                      "ofType": null,
-                      "name": "Project_Payload",
-                      "kind": "INPUT_OBJECT"
-                    },
-                    "name": null,
-                    "kind": "LIST"
-                  },
-                  "description": null,
-                  "name": "payload",
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Project",
-                  "kind": "OBJECT"
-                },
-                "name": null,
-                "kind": "LIST"
-              },
-              "name": "projects",
-              "description": "Insert items into `projects` table"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [
-                {
-                  "type": {
                     "ofType": null,
-                    "name": "Project_Payload",
+                    "name": "Project_Input",
                     "kind": "INPUT_OBJECT"
                   },
                   "description": null,
-                  "name": "payload",
+                  "name": "input",
                   "defaultValue": null
                 }
               ],
@@ -7113,43 +7141,39 @@
           "description": "Entry point through which to call your db definded RPC's"
         },
         {
-          "interfaces": null,
-          "inputFields": [
+          "interfaces": [],
+          "inputFields": null,
+          "fields": [
             {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
               "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Operator",
-                  "kind": "ENUM"
-                },
-                "name": null,
-                "kind": "NON_NULL"
+                "ofType": null,
+                "name": "String",
+                "kind": "SCALAR"
               },
-              "description": null,
-              "name": "op",
-              "defaultValue": null
+              "name": "cursor",
+              "description": null
             },
             {
+              "isDeprecated": false,
+              "deprecationReason": null,
+              "args": [],
               "type": {
-                "ofType": {
-                  "ofType": null,
-                  "name": "Boolean",
-                  "kind": "SCALAR"
-                },
-                "name": null,
-                "kind": "NON_NULL"
+                "ofType": null,
+                "name": "Client",
+                "kind": "OBJECT"
               },
-              "description": null,
-              "name": "val",
-              "defaultValue": null
+              "name": "node",
+              "description": null
             }
           ],
-          "fields": null,
-          "kind": "INPUT_OBJECT",
+          "kind": "OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "Boolean_Filter",
-          "description": "Argument used to filter by a column of type `boolean`"
+          "name": "Client_Edges",
+          "description": null
         },
         {
           "interfaces": null,
@@ -7158,8 +7182,8 @@
           "kind": "SCALAR",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "String",
-          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text."
+          "name": "ID",
+          "description": null
         },
         {
           "interfaces": [
@@ -7239,86 +7263,38 @@
           "description": "User - task assignaments"
         },
         {
-          "interfaces": null,
+          "interfaces": [],
           "inputFields": null,
-          "fields": null,
-          "kind": "ENUM",
-          "enumValues": [
+          "fields": [
             {
               "isDeprecated": false,
-              "name": "in",
               "deprecationReason": null,
-              "description": "`in` operator"
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "PageInfo",
+                "kind": "OBJECT"
+              },
+              "name": "pageInfo",
+              "description": null
             },
             {
               "isDeprecated": false,
-              "name": "like",
               "deprecationReason": null,
-              "description": "`like` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "ltat",
-              "deprecationReason": null,
-              "description": "`<@` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "lte",
-              "deprecationReason": null,
-              "description": "`<=` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "atgt",
-              "deprecationReason": null,
-              "description": "`@>` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "ilike",
-              "deprecationReason": null,
-              "description": "`ilike` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "is",
-              "deprecationReason": null,
-              "description": "`is` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "lt",
-              "deprecationReason": null,
-              "description": "`<` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "eq",
-              "deprecationReason": null,
-              "description": "`=` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "gt",
-              "deprecationReason": null,
-              "description": "`>` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "gte",
-              "deprecationReason": null,
-              "description": "`>=` operator"
-            },
-            {
-              "isDeprecated": false,
-              "name": "atat",
-              "deprecationReason": null,
-              "description": "`@@` operator"
+              "args": [],
+              "type": {
+                "ofType": null,
+                "name": "Project_Edges",
+                "kind": "OBJECT"
+              },
+              "name": "edges",
+              "description": null
             }
           ],
+          "kind": "OBJECT",
+          "enumValues": null,
           "possibleTypes": null,
-          "name": "Operator",
+          "name": "Project_Connection",
           "description": null
         },
         {
@@ -7378,7 +7354,7 @@
               "args": [],
               "type": {
                 "ofType": null,
-                "name": "User_Project",
+                "name": "User_Task",
                 "kind": "OBJECT"
               },
               "name": "node",
@@ -7388,7 +7364,7 @@
           "kind": "OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "User_Project_Edges",
+          "name": "User_Task_Edges",
           "description": null
         },
         {
@@ -7450,83 +7426,6 @@
           "description": null
         },
         {
-          "interfaces": [
-            {
-              "ofType": null,
-              "name": "Node",
-              "kind": "INTERFACE"
-            }
-          ],
-          "inputFields": null,
-          "fields": [
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "Project",
-                "kind": "OBJECT"
-              },
-              "name": "project",
-              "description": "Connection to parent `project`"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "name": "project_id",
-              "description": "Foreign key reference to project"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "ID",
-                "kind": "SCALAR"
-              },
-              "name": "id",
-              "description": "System wide unique id for the user_project object"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "Int",
-                "kind": "SCALAR"
-              },
-              "name": "user_id",
-              "description": "Foreign key reference to user"
-            },
-            {
-              "isDeprecated": false,
-              "deprecationReason": null,
-              "args": [],
-              "type": {
-                "ofType": null,
-                "name": "User",
-                "kind": "OBJECT"
-              },
-              "name": "user",
-              "description": "Connection to parent `user`"
-            }
-          ],
-          "kind": "OBJECT",
-          "enumValues": null,
-          "possibleTypes": null,
-          "name": "User_Project",
-          "description": "User - project assignaments"
-        },
-        {
           "interfaces": null,
           "inputFields": null,
           "fields": null,
@@ -7535,6 +7434,16 @@
           "possibleTypes": null,
           "name": "Boolean",
           "description": "The `Boolean` scalar type represents `true` or `false`."
+        },
+        {
+          "interfaces": null,
+          "inputFields": null,
+          "fields": null,
+          "kind": "SCALAR",
+          "enumValues": null,
+          "possibleTypes": null,
+          "name": "String",
+          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text."
         },
         {
           "interfaces": [
@@ -8097,13 +8006,42 @@
         },
         {
           "interfaces": null,
-          "inputFields": null,
+          "inputFields": [
+            {
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Operator",
+                  "kind": "ENUM"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "description": null,
+              "name": "op",
+              "defaultValue": null
+            },
+            {
+              "type": {
+                "ofType": {
+                  "ofType": null,
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                },
+                "name": null,
+                "kind": "NON_NULL"
+              },
+              "description": null,
+              "name": "val",
+              "defaultValue": null
+            }
+          ],
           "fields": null,
-          "kind": "SCALAR",
+          "kind": "INPUT_OBJECT",
           "enumValues": null,
           "possibleTypes": null,
-          "name": "Int",
-          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. "
+          "name": "Boolean_Filter",
+          "description": "Argument used to filter by a column of type `boolean`"
         },
         {
           "interfaces": [],

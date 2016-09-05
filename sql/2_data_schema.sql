@@ -1,80 +1,96 @@
+-- df: offset=100
+-- df: size=1
+
+-- df nouns: word=./dictionaries/nouns.txt
+-- df adjectives: word=./dictionaries/adjectives.txt
+-- df verbs: word=./dictionaries/verbs.txt
+-- df first: word=./dictionaries/first_names.txt
+-- df last: word=./dictionaries/last_names.txt
+-- df companies: word=./dictionaries/companies.txt
+-- df pass: const=pass
+-- df space: const=' '
+
+
 create schema data;
 set search_path to data, public;
 
 create sequence public.companies_seq start 100;
-create table companies ( 
+create table companies (
 	id                   int primary key not null unique default nextval('companies_seq'),
-	name                 text not null
+	name                 text not null check(length(name)>3 and length(name)<100) -- df: use=companies
 );
 
 
 create type user_type as enum ('administrator', 'employee');
 
 create sequence public.users_seq start 100;
-create table users ( 
+create table users (  -- df: mult=5.0
 	id                   int primary key not null unique default nextval('users_seq'),
-	name                 text not null,
-	email                text unique not null,
-	"password"           text,
+	name                 text not null check(length(name)>3), -- df: cat=first,space,last
+	-- there should also be unique constraint on email but removed because of datafiller not supporting unique on pattern generator
+	email                text not null check(email ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'), -- df: pattern='[a-z]{3,8}\.[a-z]{3,8}@(gmail|yahoo)\.com'
+	"password"           text, -- df: use=pass
 	user_type            user_type not null default 'employee',
-	company_id           int references companies(id) default app_company_id()
+	company_id           int not null references companies(id) default current_company_id()
 );
 create index users_company_id_index on users(company_id);
 
 
 create sequence public.clients_seq start 100;
-create table clients ( 
+create table clients (  -- df: mult=10.0
 	id                   int primary key not null unique default nextval('clients_seq'),
-	name                 text not null,
+	name                 text not null check(length(name)>3), -- df: use=companies
 	address              text,
-	company_id           int references companies(id) default app_company_id()
+	company_id           int not null references companies(id) default current_company_id()
 );
 create index clients_company_id_index on clients(company_id);
 
 create sequence public.projects_seq start 100;
-create table projects ( 
+create table projects (  -- df: mult=20.0
 	id                   int primary key not null unique default nextval('projects_seq'),
-	name                 text not null,
-	client_id            int references clients(id),
-	company_id           int references companies(id) default app_company_id()
+	name                 text not null check(length(name)>=3), -- df: cat=adjectives,space,nouns
+	client_id            int not null references clients(id),
+	company_id           int not null references companies(id) default current_company_id()
 );
 create index projects_company_id_index on projects(company_id);
 
 create sequence public.tasks_seq start 100;
-create table tasks ( 
+create table tasks (  -- df: mult=200.0
 	id                   int primary key not null unique default nextval('tasks_seq'),
-	name                 text not null,
+	name                 text not null check(length(name)>3), -- df: cat=verbs,space,adjectives,space,nouns
 	completed            bool not null default false,
-	project_id           int references projects(id),
-	company_id           int references companies(id) default app_company_id()
+	project_id           int not null references projects(id),
+	company_id           int not null references companies(id) default current_company_id()
 );
 create index tasks_company_id_index on tasks(company_id);
 
 create sequence public.users_projects_seq start 100;
-create table users_projects ( 
-	project_id           int references projects(id),
-	user_id              int references users(id),
-	company_id           int references companies(id) default app_company_id(),
+create table users_projects ( -- df: nogen
+	project_id           int not null references projects(id),
+	user_id              int not null references users(id),
+	company_id           int references companies(id) default current_company_id(),
 	primary key (project_id, user_id)
 );
 create index users_projects_company_id_index on users_projects(company_id);
 
 create sequence public.users_tasks_seq start 100;
-create table users_tasks ( 
-	task_id              int references tasks(id),
-	user_id              int references users(id),
-	company_id           int references companies(id) default app_company_id(),
-	primary key ( task_id, user_id )
+create table users_tasks ( -- df: nogen
+	task_id              int not null references tasks(id),
+	user_id              int not null references users(id),
+	company_id           int not null references companies(id) default current_company_id(),
+	primary key (task_id, user_id)
 );
 create index users_tasks_company_id_index on users_tasks(company_id);
 
-create table sessions ( 
+create table sessions ( -- df: nogen
 	session_id           uuid primary key default gen_random_uuid(),
 	user_id              int references users(id),
 	company_id           int references companies(id)
 );
 
 
+-- these functions are used as virtual columns in views from the api schema which are needed to generate a globaly
+-- unique row id used by Relay
 create or replace function relay_id(companies) returns text as $$
 select encode(convert_to('company:' || $1.id::text, 'utf-8'), 'base64')
 $$ immutable language sql;

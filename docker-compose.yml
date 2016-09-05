@@ -1,56 +1,52 @@
 version: '2'
 services:
   db:
-    image: postgres #official
-    # ports:
-    #   - "5432:5432"
+    image: postgres
+    ports:
+      - "5432:${DB_PORT}"
     environment:
-      - POSTGRES_USER=admin
-      # - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=app
+      - POSTGRES_USER=${SUPER_USER}
+      - POSTGRES_PASSWORD=${SUPER_USER_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - "./sql:/docker-entrypoint-initdb.d"
   postgrest:
     image: sub0/postgrest
-    # ports:
-    #   - "3000:3000"
+    ports:
+      - "3000:3000"
     links:
       - db:db
     environment:
-      - dummy=true
-      # - POSTGREST_SCHEMA=api
-      # - POSTGREST_ANONYMOUS=anonymous
-      - POSTGREST_JWT_SECRET=secret
-      # - POSTGREST_MAX_ROWS=null
-      # - POSTGREST_FUNCTION=null
-      - POSTGREST_FUNCTION=check_session_id
-      # - POSTGREST_POOL=200
-      # - POSTGREST_DB_USER=authenticator
-      # - POSTGREST_DB_PASS=authenticator
-      # - POSTGREST_DB_HOST=db
-      # - POSTGREST_DB_PORT=5432
-      # - POSTGREST_DB_NAME=app
-
+      - POSTGREST_DB_HOST=${DB_HOST}
+      - POSTGREST_DB_PORT=${DB_PORT}
+      - POSTGREST_DB_NAME=${DB_NAME}
+      - POSTGREST_SCHEMA=${DB_SCHEMA}
+      - POSTGREST_DB_USER=${DB_USER}
+      - POSTGREST_DB_PASS=${DB_PASS}
+      - POSTGREST_ANONYMOUS=${POSTGREST_ANONYMOUS}
+      - POSTGREST_JWT_SECRET=${POSTGREST_JWT_SECRET}
+      - POSTGREST_MAX_ROWS=${POSTGREST_MAX_ROWS}
+      - POSTGREST_FUNCTION=${POSTGREST_FUNCTION}
+      - POSTGREST_POOL=${POSTGREST_POOL}
   openresty:
-    image: sub0/openresty
+    image: sub0/dev-openresty
     ports:
       - "8080:80"
     links:
       - db:db
       - postgrest:postgrest
     environment:
-      - RELAY_ID_COLUMN=id
-      - DEVELOPMENT=0
-      # - CACHE_BYPASS=1
-      - CACHE_BYPASS=0
-      # - POSTGREST_HOST=postgrest
-      # - POSTGREST_PORT=3000
-      # - DB_SCHEMA=api
-      # - DB_HOST=db
-      # - DB_PORT=5432
-      # - DB_NAME=app
-      # - DB_USER=authenticator
-      # - DB_PASS=authenticator
+      - RELAY_ID_COLUMN=${RELAY_ID_COLUMN}
+      - DEVELOPMENT=${DEVELOPMENT}
+      - CACHE_BYPASS=${DISABLE_CACHE}
+      - POSTGREST_HOST=${POSTGREST_HOST}
+      - POSTGREST_PORT=${POSTGREST_PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_SCHEMA=${DB_SCHEMA}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
     volumes:
       - "./user_module.lua:/usr/local/openresty/lualib/user_module.lua"
       - "./nginx/conf/includes:/usr/local/openresty/nginx/conf/includes"

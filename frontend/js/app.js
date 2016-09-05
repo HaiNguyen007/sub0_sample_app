@@ -53,10 +53,10 @@ Client = Relay.createContainer(Client, {
 });
 
 
-class App extends React.Component {
+class List extends React.Component {
   _handleCountChange = (e) => {
     this.props.relay.setVariables({
-      clientsToShow: e.target.value
+      projectsToShow: e.target.value
         ? parseInt(e.target.value, 10)
         : 0,
     });
@@ -90,7 +90,7 @@ class App extends React.Component {
     });
   }
   render() {
-  	var {clientsToShow, showProjects, showTasks, completed} = this.props.relay.variables;
+  	var {projectsToShow, showProjects, showTasks, completed} = this.props.relay.variables;
     var selectValue = 'all'
     var completedVal = completed && completed.val
     switch (completedVal) {
@@ -99,16 +99,16 @@ class App extends React.Component {
       default: selectValue = 'all';
     }
     return <div>
-    	<input
-    	  onChange={this._handleCountChange}
+      <input type="checkbox" checked={showProjects} onChange={this._handleShowProjects} /> Show Projects &nbsp;
+      {showProjects && <span><input
+        onChange={this._handleCountChange}
           min="1"
-          style={{width: 44}}
+          style={{width: 30}}
           type="number"
-          value={clientsToShow}
-        /> Clients to show
+          value={projectsToShow}
+        /> per client </span>}
       <br />
-      <input type="checkbox" checked={showProjects} onChange={this._handleShowProjects} /> Show Projects <br />
-      <input type="checkbox" checked={showTasks} onChange={this._handleShowTasks}/> Show Tasks <br />
+      <input type="checkbox" checked={showTasks} onChange={this._handleShowTasks}/> Show Tasks &nbsp;
       {showTasks && <select value={selectValue} onChange={this._handleTaskCompletedChange}>
         <option value="all">All</option>
         <option value="completed">Completed</option>
@@ -137,25 +137,29 @@ class App extends React.Component {
     
   }
 }
-App = Relay.createContainer(App, {
+List = Relay.createContainer(List, {
   initialVariables: {
-    clientsToShow: 3,
+    projectsToShow: 1,
     showProjects: true,
-    showTasks: false,
+    showTasks: true,
     completed: null,
   },
   fragments: {
-    viewer: ({clientsToShow, showProjects, showTasks, showCompletedTasks, completed}) => Relay.QL`
+    viewer: () => Relay.QL`
       fragment on Viewer {
-        clients(first: $clientsToShow) {
+        clients(first: 100) {
           edges {
+            cursor
             node {
               id
+              t_id
               ${Client.getFragment('client')}
-              projects(first: 10) @include(if: $showProjects) {
+              projects(first: $projectsToShow) @include(if: $showProjects) {
                 edges {
+                  cursor
                   node {
                     id
+                    t_id
                     ${Project.getFragment('project')}
                     tasks(first: 10, completed: $completed)  @include(if: $showTasks) {
                       edges {
@@ -177,8 +181,9 @@ App = Relay.createContainer(App, {
 });
 
 
-class AppHomeRoute extends Relay.Route {
-  static routeName = 'Home';
+
+class ListRoute extends Relay.Route {
+  static routeName = 'List';
   static queries = {
     viewer: (Component) => Relay.QL`
       query {
@@ -186,6 +191,67 @@ class AppHomeRoute extends Relay.Route {
       }
     `,
   };
+}
+
+class EditClient extends React.Component {
+  _onSave = (e) => {
+    var {name} = this.refs
+    alert(name.value)
+  }
+
+  render() {
+    var {client} = this.props.viewer;
+    return <div>
+      <input type="text" defaultValue={client.name} ref="name" />
+      <input type="button" value="Save" onClick={this._onSave} />
+    </div>
+  }
+}
+EditClient = Relay.createContainer(EditClient, {
+  fragments: {
+    // client: () => Relay.QL`
+    //   fragment on Client {
+    //     id t_id name 
+    //   }
+    // `,
+    viewer: () => Relay.QL`
+      fragment on Viewer {
+        client(t_id: 1) {
+          id t_id name   
+        }
+      }
+    `,
+  },
+});
+class EditClientRoute extends Relay.Route {
+  static routeName = 'EditClient';
+  static queries = {
+    viewer: (Component) => Relay.QL`
+      query {
+        viewer {
+          ${Component.getFragment('viewer')}
+        },
+      }
+    `,
+  };
+}
+
+
+class Root extends React.Component {
+  render() {
+    return <table style={{width: "100%"}}><tbody>
+      <tr>
+        <td style={{verticalAlign:"top"}}>
+          <h3>List of clients</h3>
+          <Relay.RootContainer environment={Relay.Store} Component={List} route={new ListRoute()} />
+        </td>
+        <td style={{verticalAlign:"top"}}>
+          <h3>Update a client</h3>
+          <Relay.RootContainer environment={Relay.Store} Component={EditClient} route={new EditClientRoute()} />
+        </td>
+      </tr>
+    </tbody></table>
+  }
 }
 
 Relay.injectNetworkLayer(
@@ -196,11 +262,7 @@ Relay.injectNetworkLayer(
   })
 );
 
-ReactDOM.render(
-  <Relay.RootContainer
-  	environment={Relay.Store}
-    Component={App}
-    route={new AppHomeRoute()}
-  />,
-  document.getElementById('root')
-);
+// ReactDOM.render( <Root />,document.getElementById('root'));
+ReactDOM.render( <Relay.RootContainer environment={Relay.Store} Component={List} route={new ListRoute()} />,document.getElementById('root'));
+
+

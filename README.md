@@ -35,7 +35,7 @@ Use this JWT to run queries
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW5pc3RyYXRvciIsInVzZXJfaWQiOjEsImNvbXBhbnlfaWQiOjF9.ate5mETtGRu-mfGF4jFt7pP1b4W85r2uEXt603D7obc
 ```
 
-You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt of you can use the `session` authentication method by running
+You can also use `rpc/signup` and `rpc/login_jwt` to get your own jwt or use the `session` authentication method by running
 
 ```graphql
 {
@@ -156,10 +156,14 @@ fragment projectInfo on Project {
 }
 ```
 
+Mutaions are also possible but they are not compatible with Relay yet, the reason being Relay is undergoing a rewrite that will make mutations more
+flexible and will not impose restrictions on the GraphQL server so it's very possible you'll be able to use the current mutation interface implemented
+by Sub0
+
 ```graphql
 mutation {
   insert {
-    project(payload:{name: "New Project", client_id:1}){
+    project(input:{name: "New Project", client_id:1}){
       id
       name
       client {
@@ -173,7 +177,7 @@ mutation {
 ```graphql
 mutation {
   update {
-    project(t_id: 1, payload:{name: "Updated Name"}){
+    project(t_id: 1, input:{name: "Updated Name"}){
       id
       name
       client {
@@ -184,13 +188,13 @@ mutation {
 }
 ```
 
-Once you get a feel of how things work and feel adventurous,  try the system with your own schema. 
-
+Once you get a feel of how things work and feel adventurous, try the system with your own schema. 
+ - Take a look at the `.env` file, most of the configuration is there and the ENV variables defined there are used in the `docker-compose.yml` file
  - Stop the running containers `Ctrl + c` and remove them with `docker rm` command. (you can use `docker rm -v $(docker ps -a -q -f name=sampleapp_,status=exited)` to remove just the containers started as part of this docker-compose sample.)
  - Place your files in the `sql` directory.
- - comment the line `- RELAY_ID_COLUMN=id` to disable relay interface generation (you can leave this on if your tables have an `id` column which is globally unique and generated like so `base64('table_name:idvalue')`)
+ - comment the line `RELAY_ID_COLUMN=id` in the `.env` file to disable relay interface generation (you can leave this on if your tables have an `id` column which is globally unique
  - Start the system again with `docker-compose up`
 
-Alternatively you could just have the containers connecting directly to your database. Edit `docker-compose-external-db.yml`  and then start the containers with `docker-compose -f docker-compose-external-db.yml up`
+Alternatively you could just have the containers connecting directly to your database. Edit the `.env` file and comment the `db` service in the `docker-compose.yml`
 
 Another thing to explore is the nginx configurations in the `nginx` directory. Try editing them then uncomment the matching line for that file in `docker-compose.yml` to have the container use your custom file.

@@ -6,7 +6,7 @@ import WebpackDevServer from 'webpack-dev-server';
 import {clean} from 'require-clean';
 import {exec} from 'child_process';
 
-const APP_PORT = 3000;
+const APP_PORT = 3001;
 const GRAPHQL_ENDPOINT = 'http://localhost:8080/api/graphql/'
 
 let appServer;

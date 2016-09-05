@@ -1,6 +1,6 @@
 set search_path to public;
 
-create or replace function app_user_type()
+create or replace function current_user_type()
 returns text
 stable
 language sql
@@ -8,7 +8,7 @@ as $$
     select current_user::text;
 $$;
 
-create or replace function app_user_id()
+create or replace function current_user_id()
 returns integer
 stable
 language sql
@@ -17,7 +17,7 @@ as $$
 $$;
 
 
-create or replace function app_company_id()
+create or replace function current_company_id()
 returns integer
 stable
 language sql
