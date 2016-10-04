@@ -16,8 +16,7 @@ In addition to "stock PostgREST" this system provides
 
 
 This repo contains a sample app that demonstrates the capabilities of Sub0 platform.
-To run this you need to have docker installed on your system and logged in with your dockerhub id.
-At the moment, the images are private so you need to also <b>request access on [Sub0 site](http://graphqlapi.com) for your dockerhub id</b>.
+To run this you need to have docker installed on your system.
 
 ```shellscript
 git clone https://github.com/ruslantalpa/sub0_sample_app.git
